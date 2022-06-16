@@ -8,6 +8,7 @@ const app = express();
 const connectDB = require('./DB/connect');
 const notFound = require('./Middlewares/notFound');
 const ErrorHandler = require('./Middlewares/error-handler');
+const EmailRoutes = require('./Routes/EmailRoutes')
 
 
 // varibales
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Routes
 app.use(express.static('public'));
+app.use('/send', EmailRoutes)
 
 
 //Middleware
